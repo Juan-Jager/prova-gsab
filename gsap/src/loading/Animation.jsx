@@ -1,7 +1,7 @@
 import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap"
 
-const Animation = () => {
+const Animation = ({ onAnimationComplete }) => {
   const comp = useRef(null);
 
   useLayoutEffect(()=>{  /* layoutEffect si carica in modo sync dopo che il DOM viene aggiornato ma prima che venga effettuato il rendering a schermo  */
@@ -12,20 +12,10 @@ const Animation = () => {
         xPercent: "-100",
         duration: 1.3,
         delay: 0.8,
-      }).from(["#title-1", "#title-2"], {
+      }).from(["#title-1", "#title-2", "#title-3"], {
         opacity: 0,
         y: "+=30",
         stagger: 1,
-      }).from(["#title-3", "#title-4"], {
-        opacity: 0,
-        y: "+=30",
-        delay: .5 ,
-        stagger: 2.5,
-      }).to(["#title-4"], {
-        opacity: 0,
-        y: "+=30",
-        delay: .1,
-        stagger: 0.5,
       }).to(["#title-1", "#title-2", "#title-3"], {
         opacity: 0,
         y: "-=30",
@@ -37,17 +27,20 @@ const Animation = () => {
       }).from("#welcome", {
         opacity: 0,
         duration: 1.5,
+        onComplete: onAnimationComplete,
       })
     }, comp)
+    
+      
     return () => ctx.revert()
   }, [])
   return (
     <div className="relative" ref={comp}>
       <div  id="intro-slider" className="h-screen p-10 bg-gray-50 absolute top-0 left-0 font-spaceGrotesk z-10 w-full flex flex-col gap-10 justify-center tracking-tighter place-items-center ">
         <h1 className="text-5xl" id="title-1">Web developer</h1>
-        <h1 className="text-5xl" id="title-2">web design</h1>
+        <h1 className="text-5xl" id="title-2">web designer</h1>
         <h1 className="text-5xl" id="title-3">hacker</h1>
-        <h1 className="text-5xl" id="title-4">cazzo ridi mi scopo tua sorella</h1>
+    
       </div>
       <div className="h-screen flex bg-gray-950 justify-center place-items-center ">
 
