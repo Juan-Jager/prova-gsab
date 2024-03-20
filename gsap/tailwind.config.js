@@ -2,7 +2,11 @@
 export default {
   content: ["./src/**/*.{html,jsx,css,js}"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily:{
+        spaceGrotesk: ["Space Grotesk", "sans-serif"],
+      },
+    },
   },
   plugins: [],
 }
