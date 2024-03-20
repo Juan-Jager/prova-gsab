@@ -10,8 +10,8 @@ const App = () => {
   
   return (
     <>
-      {/* {animationsCompleted ? null : <Animation onAnimationComplete={handleAnimationsComplete} />} */}
-      {/* {!animationsCompleted ? null :  <Overview/>} */}
+      {/* {animationsCompleted ? null : <Animation onAnimationComplete={handleAnimationsComplete} />}
+      {!animationsCompleted ? null :  <Overview/>} */}
       <Overview/>
     </>
   )
