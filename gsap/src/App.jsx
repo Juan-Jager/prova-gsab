@@ -1,7 +1,11 @@
 import Animation from "./loading/Animation";
-import Overview from "./pages/Overview";
 import { useState, useRef, useEffect } from "react";
 import gsap from "gsap";
+import Header from "./components/Header";
+import Body from "./components/Body";
+import Footer from "./components/Footer";
+
+
 const App = () => {
   const [animationsCompleted, setAnimationsCompleted] = useState(false);
 
@@ -11,9 +15,14 @@ const App = () => {
 
   const animationRef = useRef(null);
 
+  
   useEffect(() => {
     if (animationsCompleted) {
       const tl = gsap.timeline();
+
+      const bodyAnimation1 = gsap.from(".body-animation", {opacity: 0, duration: 1.3 });
+      const headerAnimation1 = gsap.from(".header-animation", {opacity: 0, yPercent: '-100', duration: 1.3,});
+
       tl.to(animationRef.current, {
         yPercent: '-100', 
         duration: 2,
@@ -21,11 +30,13 @@ const App = () => {
       }).set(".animation", {
         stagger: 1,
         display: 'none',
-        stagger: 1,
-      }).from(".overview", {
+      })
+      .add(bodyAnimation1)
+      .add(headerAnimation1)
+      .from(".footer-animation", {
         opacity: 0,
-        yPercent: '-100', 
-        duration: .3,
+        yPercent: '100', 
+        duration: 1.3,
       })
     }
   }, [animationsCompleted]);
@@ -36,10 +47,16 @@ const App = () => {
       <div className="animation" ref={animationRef}>
         <Animation onAnimationComplete={handleAnimationsComplete}/>
       </div>
-      <div className="overview">
+      
+        {animationsCompleted ? <Header/>: null}
+     
+     
+        {animationsCompleted ? <Body/>: null}
+      
+   
 
-        {animationsCompleted ? <Overview/> : null}
-      </div>
+        {animationsCompleted ? <Footer/> : null}
+      
     </>
   )
 }

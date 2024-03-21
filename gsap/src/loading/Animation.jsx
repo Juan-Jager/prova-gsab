@@ -1,6 +1,6 @@
 import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap"
-import Overview from "../pages/Overview";
+
 
 const Animation = ({ onAnimationComplete }) => {
   const comp = useRef(null);
