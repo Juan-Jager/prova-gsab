@@ -12,7 +12,8 @@ const Animation = ({ onAnimationComplete }) => {
       t1.from("#intro-slider", {
         xPercent: "-100",
         duration: 1.3,
-        delay: 0.8,
+        delay: 1,
+
       }).from(["#title-1", "#title-2", "#title-3", "#title-4"], {
         opacity: 0,
         y: "+=30",
@@ -45,8 +46,8 @@ const Animation = ({ onAnimationComplete }) => {
       <div  id="intro-slider" className="h-screen p-10 bg-gray-50 absolute top-0 left-0 font-spaceGrotesk z-10 w-full flex flex-col gap-10 justify-center tracking-tighter place-items-center ">
         <h1 className="text-5xl" id="title-1">Web developer</h1>
         <h1 className="text-5xl" id="title-2">web designer</h1>
-        <h1 className="text-5xl" id="title-3">hacker</h1>
-        <h1 className="text-5xl" id="title-4">cazzo ridi mi scopo tua madre</h1>
+        <h1 className="text-5xl" id="title-3">software developer</h1>
+        {/* <h1 className="text-5xl" id="title-4">altro a botto</h1> */}
     
       </div>
       <div className="h-screen flex bg-gray-950 justify-center place-items-center ">

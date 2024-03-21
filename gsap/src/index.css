@@ -73,7 +73,11 @@ button:focus-visible {
 
 body{
   display:inline;
+
 }
 .header{
   background-color: blue;
+}
+::-webkit-scrollbar {
+  display: none;
 }
