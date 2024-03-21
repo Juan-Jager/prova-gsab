@@ -1,5 +1,6 @@
 import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap"
+import Overview from "../pages/Overview";
 
 const Animation = ({ onAnimationComplete }) => {
   const comp = useRef(null);
@@ -12,15 +13,20 @@ const Animation = ({ onAnimationComplete }) => {
         xPercent: "-100",
         duration: 1.3,
         delay: 0.8,
-      }).from(["#title-1", "#title-2", "#title-3"], {
+      }).from(["#title-1", "#title-2", "#title-3", "#title-4"], {
         opacity: 0,
         y: "+=30",
         stagger: 1,
+      }).to(["#title-4"], {
+        opacity: 0,
+        y: "+=30",
+        delay: .1,
+        stagger: 0.5,
       }).to(["#title-1", "#title-2", "#title-3"], {
         opacity: 0,
         y: "-=30",
         delay: .5,
-        stagger: 0.5,
+        stagger: .5,
       }).to("#intro-slider", {
         xPercent: "-100",
         duration: 1.3,
@@ -28,7 +34,7 @@ const Animation = ({ onAnimationComplete }) => {
         opacity: 0,
         duration: 1.5,
         onComplete: onAnimationComplete,
-      })
+    })
     }, comp)
     
       
@@ -40,6 +46,7 @@ const Animation = ({ onAnimationComplete }) => {
         <h1 className="text-5xl" id="title-1">Web developer</h1>
         <h1 className="text-5xl" id="title-2">web designer</h1>
         <h1 className="text-5xl" id="title-3">hacker</h1>
+        <h1 className="text-5xl" id="title-4">cazzo ridi mi scopo tua madre</h1>
     
       </div>
       <div className="h-screen flex bg-gray-950 justify-center place-items-center ">
