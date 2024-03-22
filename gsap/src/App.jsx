@@ -25,7 +25,7 @@ const App = () => {
 
       tl.to(animationRef.current, {
         yPercent: '-100', 
-        duration: 2,
+        duration: 1,
         stagger: 1,
       }).set(".animation", {
         stagger: 1,
@@ -36,7 +36,7 @@ const App = () => {
       .from(".footer-animation", {
         opacity: 0,
         yPercent: '100', 
-        duration: 1.3,
+        duration: 1,
       })
     }
   }, [animationsCompleted]);

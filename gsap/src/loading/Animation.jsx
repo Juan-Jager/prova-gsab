@@ -11,13 +11,15 @@ const Animation = ({ onAnimationComplete }) => {
       const t1 = gsap.timeline()
       t1.from("#intro-slider", {
         xPercent: "-100",
-        duration: 1.3,
-        delay: 1,
+        duration: 1,
+        delay: .3,
 
       }).from(["#title-1", "#title-2", "#title-3", "#title-4"], {
         opacity: 0,
         y: "+=30",
-        stagger: 1,
+        stagger: .5,
+        delay: 0.5,
+
       }).to(["#title-4"], {
         opacity: 0,
         y: "+=30",
@@ -30,7 +32,7 @@ const Animation = ({ onAnimationComplete }) => {
         stagger: .5,
       }).to("#intro-slider", {
         xPercent: "-100",
-        duration: 1.3,
+        duration: 1,
       }).from("#welcome", {
         opacity: 0,
         duration: 1.5,
